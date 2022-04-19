@@ -1,0 +1,44 @@
+<%- include('layout/header') %> 
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-6 mx-auto mt-4">
+            <div class="card shadow">
+                <div class="card-header bg-success">
+                    <h3 class="text-light">Edit Project (<%= project.projectName %>)</h3>
+                </div>
+                <div class="card-body p-4">
+                    <form action="/update/<%= project._id %> " method="post" id="add-form" enctype="multipart/form-data">
+                        <div class="mb-3">
+                            <label for="name">Project Name</label>
+                            <input type="text" name="name" class="form-control form-control-lg" placeholder="Enter Project Name" value="<%= project.projectName %>" autocomplete="off" required />
+                        </div>
+                        <div class="mb-3">
+                            <label for="description">Project Description</label>
+                            <textarea class="form-control form-control-lg" name="description" rows="3" cols="30" placeholder="Enter Project Description" autocomplete="off"><%= project.projectDescription %></textarea>
+                        </div> 
+                        <div class="mb-3">
+                            <label for="tech">Tech Used</label>
+                            <input type="text" name="tech" class="form-control form-control-lg" placeholder="Enter Tech Used"  autocomplete="off" value="<%= project.techUsed %>" required />
+                        </div>
+                        <div class="mb-3">
+                            <label for="link">Project Link</label>
+                            <input type="text" name="link" class="form-control form-control-lg" placeholder="Enter Project Link" value="<%= project.projectLink %>" autocomplete="off" required />
+                        </div>
+                        <div class="mb-3">
+                            <label for="image" class="form-label">Select Project Image</label>
+                            <input type="file" name="image" class="form-control form-control-lg" autocomplete="off" />
+                            <img src="/<%= project.projectImage %>" width="100" class="img-thumbnail mt-1">
+                        </div>
+                        <input type="hidden" name="old_image" value="<%= project.projectImage %>"  />
+                        <div class="mb-3 d-grid">
+                            <input type="submit" name="submit" value="Update Project" class="btn btn-success btn-lg" />                            
+                        </div>
+                    </form>
+                </div>
+            </div>            
+        </div>
+    </div>
+</div>
+
+<%- include('layout/footer') %> 
