@@ -23,33 +23,31 @@
             $(this).toggleClass("bi-grid-fill bi-grid-3x3-gap-fill");
             $(".main").toggleClass("col-lg-6");
         });
-        // $('#contactModal').on('show.bs.modal', function (event) {
-        //     console.log("Inside");
-        //     var button = $(event.relatedTarget) // Button that triggered the modal
-        //     var recipient = button.data('whatever')
-        //     var modal = $(this)
-        //     modal.find('.modal-title').text('New message to ' + recipient)
-        //     modal.find('.modal-body input').val(recipient)
-        // })
-        // function myFunction() {
-        //     var input, filter, cards, cardContainer, h5, title, i;
-        //     input = document.getElementById("myFilter");
-        //     filter = input.value.toUpperCase();
-        //     console.log("Filter: "+filter);
-        //     cardContainer = document.getElementById("myItems");
-        //     cards = cardContainer.getElementsByClassName("card");
-        //     for (i = 0; i < cards.length; i++) {
-        //         title = cards[i].querySelector(".card-body h3.card-title");
-        //         if (title.innerText.toUpperCase().indexOf(filter) > -1) {
-        //             cards[i].style.display = "";
-        //         } else {
-        //             cards[i].style.display = "none";
-        //         }
-        //     }
-        // }
-        $('#btnSort').click(function (){
-            $('.card-deck .card').sort(function(a,b) {
-                return $(a).find(".card-title").text() > $(b).find(".card-title").text() ? 1 : -1;
+
+        function myFunction() {
+            var input, filter, cards, cardContainer, h5, title, i;
+            input = document.getElementById("myFilter");
+            filter = input.value.toUpperCase();
+            console.log("Filter: "+filter);
+            cardContainer = document.getElementById("myItems");
+            cards = cardContainer.getElementsByClassName("card");
+            for (i = 0; i < cards.length; i++) {
+                title = cards[i].querySelector(".card-body h3.card-title");
+                if (title.innerText.toUpperCase().indexOf(filter) > -1) {
+                    cards[i].style.display = "";
+                } else {
+                    cards[i].style.display = "none";
+                }
+            }
+        }
+        $('#btnSortName').click(function (){
+            $('.card-deck .main').sort(function(a,b) {
+                return $(a).find(".card-title").text().toLowerCase() > $(b).find(".card-title").text().toLowerCase() ? 1 : -1;
+            }).appendTo(".card-deck");
+        })
+        $('#btnSortDate').click(function (){
+            $('.card-deck .main').sort(function(a,b) {
+                return $(a).find(".card-footer div.lastUpdate").text() > $(b).find(".card-footer div.lastUpdate").text() ? 1 : -1;
             }).appendTo(".card-deck");
         })
     </script>
