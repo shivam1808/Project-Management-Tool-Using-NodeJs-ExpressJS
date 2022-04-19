@@ -9,19 +9,45 @@
             </div>
         <% } %>
 
-        <div class="my-2">
+        <div class="my-2" style="white-space: nowrap; overflow-x: auto;">
+            <div style="display: inline-block; width: 50%;">
+                <input type="text" id="myFilter" class="form-control" onkeyup="myFunction()" placeholder="Search for project..">
+            </div>
+            <div style="display: inline-block;">
+                <button type="button" class="btn btn-primary mx-2" id="btnSort">Sort</button>
+            </div>
+            <i id="click_advance" style="float: right; padding: 0; margin: 0;" class="bi bi-grid-3x3-gap-fill fa-2x"></i>
+            
+        </div>
+        
+        <!-- <div class="my-1">
+            <div style="float: left;">
+                <input type="text" id="myFilter" class="form-control" onkeyup="myFunction()" placeholder="Search for project.." width="100%">
+            </div>
+            <span style="display: block; overflow: hidden;">
+                <button type="button" class="btn btn-primary mx-2" id="btnSort">Sort</button>
+            </span>
+            <span >
+                <i id="click_advance" style="float: right;" class="bi bi-grid-3x3-gap-fill fa-2x"></i>
+            </span>
+            
+        </div> -->
+
+        <!-- <div class="my-1">
             <div style="display: table-cell;  width:100%;">
                 <input type="text" id="myFilter" class="form-control" onkeyup="myFunction()" placeholder="Search for project.." style="width:100%;" >
             </div>
             <div style="display: table-cell;">
-                <h2 class="mx-2"><i id="click_advance" class="bi bi-grid-3x3-gap-fill"></i></h2>
+                <button type="button" class="btn btn-primary mx-2" id="btnSort">Sort</button>
             </div>
-        </div>
-
+            <div style="display: table-cell;">
+                <i id="click_advance" class="bi bi-grid-3x3-gap-fill fa-2x"></i>
+            </div>
+        </div> -->
             
-        <div class="row my-2" id="myItems">
+        <div class="row my-2 card-deck" id="myItems">
             <%  projects.forEach(function(row){ %>
-                <div class="main col-sm-6 col-md-3">
+                <div class="main col-sm-6 col-md-4">
                     <div class="card border-success mb-3">
                         <img src="<%= row.projectImage %>" class="card-img-top" alt="Image" data-bs-toggle="modal" data-bs-target="#projectModal">
                         <div class="card-body bg-transparent border-success">
